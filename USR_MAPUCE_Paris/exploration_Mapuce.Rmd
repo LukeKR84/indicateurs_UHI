@@ -1,0 +1,68 @@
+---
+title: "Exploration des données MApUCE"
+author: "team stage urclim"
+date: "2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(sf)
+library(ggplot2)
+library(dplyr)
+library(viridis)
+library(stringr)
+setwd("~/encadrement/stage_luke/indicateurs_UHI/")
+```
+
+
+
+
+## Contexte
+
+Ce document montre les grandes étapes du traitement des données MApUCE pour les comparer aux données MesoNH dont on dispose sur  Paris. 
+C'est aussi un exemple de rapport d'études, relativement reproductible, qu'on peut utiliser pour des rapports intermédiaires, du moins tant qu'on fait de la "petite" visualisation (2D et en image).
+
+Les fichiers auxquels il sera fait référence sont ceux du repo github de luke créé pour le stage : [https://github.com/LukeKR84/indicateurs_UHI](https://github.com/LukeKR84/indicateurs_UHI)
+
+
+
+## Données MesoNH
+
+Les données mesoNH dont je dispose sont dans des fichier CSV. J'ai choisi le fichier des points 'O', c'est à dire les centre des cubes du dataset MesoNH, comme le montre l'image de Jacques ci-dessous.
+
+![](cube_mesoNH.png)
+
+### Température
+
+
+La température se trouve dans les premières colonnes du tableaux de données mesoNH:
+
+```{r meso1, cache=TRUE}
+setwd()
+dataMeso <-  read.csv("../data_mesoNH_point_O.csv")
+names(dataMeso)
+```
+`
+
+On convertit en objet spatial, on projette en lambert93  et on prend les colonnes estampillées `THT`
+
+```{r meso2, cache=TRUE}
+dataMeso <-  st_as_sf(dataMeso, coords = c("longitude", "latitude"))
+#assuming data is on WGS 84
+st_crs(dataMeso) <- 4326
+dataMeso<-  st_transform(dataMeso, 2154)
+#only temperature THT variables
+dataMeso <-  datatMeso [,33:64]
+```
+
+
+
+## Données MApUCE
+
+
+### Selection de la zone d'étude 
+
+
+
+## 

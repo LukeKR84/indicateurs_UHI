@@ -9,7 +9,7 @@ setwd("~/encadrement/stage_luke/")
 
 
 
-dfUSR <-  read_sf("indicateurs_UHI/USR_MAPUCE_Paris/usr_mapuce_paris.geojson")
+dfUSR <-  read_sf("./données Mapuce_backup/usr_mapuce_paris.geojson")
 st_crs(dfUSR)
 names(dfUSR)
 
