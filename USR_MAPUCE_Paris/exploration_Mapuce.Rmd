@@ -2,7 +2,9 @@
 title: "Exploration des données MApUCE"
 author: "team stage urclim"
 date: "2020"
-output: html_document
+output: 
+  html_document:
+    toc: true
 ---
 
 ```{r setup, include=FALSE}
@@ -20,7 +22,7 @@ setwd("~/encadrement/stage_luke/indicateurs_UHI/")
 
 ## Contexte
 
-Ce document montre les grandes étapes du traitement des données MApUCE pour les comparer aux données MesoNH dont on dispose sur  Paris. 
+Ce document montre les grandes étapes du traitement et de l'exploration des données MApUCE pour les comparer aux données MesoNH dont on dispose sur  Paris. 
 C'est aussi un exemple de rapport d'études, relativement reproductible, qu'on peut utiliser pour des rapports intermédiaires, du moins tant qu'on fait de la "petite" visualisation (2D et en image).
 
 Les fichiers auxquels il sera fait référence sont ceux du repo github de luke créé pour le stage : [https://github.com/LukeKR84/indicateurs_UHI](https://github.com/LukeKR84/indicateurs_UHI)
@@ -36,10 +38,9 @@ Les données mesoNH dont je dispose sont dans des fichier CSV. J'ai choisi le fi
 ### Température
 
 
-La température se trouve dans les premières colonnes du tableaux de données mesoNH:
+La température se trouve dans les premières colonnes du tableau de données mesoNH:
 
 ```{r meso1, cache=TRUE}
-setwd()
 dataMeso <-  read.csv("../data_mesoNH_point_O.csv")
 names(dataMeso)
 ```
@@ -47,22 +48,103 @@ names(dataMeso)
 
 On convertit en objet spatial, on projette en lambert93  et on prend les colonnes estampillées `THT`
 
-```{r meso2, cache=TRUE}
+```{r meso2, cache=TRUE, warning=FALSE}
 dataMeso <-  st_as_sf(dataMeso, coords = c("longitude", "latitude"))
 #assuming data is on WGS 84
 st_crs(dataMeso) <- 4326
 dataMeso<-  st_transform(dataMeso, 2154)
 #only temperature THT variables
-dataMeso <-  datatMeso [,33:64]
+dataMeso <-  dataMeso [,33:64]
 ```
 
+On affiche la première série de température THT_1, avec la géométrie des quartiers de Paris en dessous
+```{r meso3, cache=TRUE}
+paris <-  st_read("../opendata_vecteur_Paris/quartier_paris.shp")
+paris <- st_transform(paris, 2154)
+plot(paris$geometry, border="black")
+plot(dataMeso[1], pch=16, add=T)
+```
 
 
 ## Données MApUCE
 
+les données MApUCE sont disponibles sur [http://mapuce.orbisgis.org/#](http://mapuce.orbisgis.org/#). 
 
-### Selection de la zone d'étude 
+On récupère deux types de données : des USR avec des indicateurs morphologiques, et deux scénarios de simulation d'îlots de chaleur-UHI).
+
+Les USR (Unités Spatiales de Rédérence) pavent l'espace étudié par le projet MApUCE, on va faire une selection spatiale de ces USR pour ne garder que celles qui sont sous les points MesoNH.
+ 
+ 
+ Le résultat de cette selection s'appelle `zoneEtudeUSR.shp` et se trouve dans le repertoire `USR_MAPUCE_Paris` du repo github.
+Le fichier brut de données USR france entière  est trop gros pour passer sur github, je montre ici le code pour obtenir cette selection spatiale en suppossant qu'on dispose du fichier `usr_mapuce_paris.geojson` , téléchargé du site du projet.
+
+
+### Selection des USR de la zone d'étude 
+
+On commence par filtrer les données USR de MApUCE pour ne garder que les USR de Paris , du 92, 93 et 94, qui entourent Paris.
+
+
+```{r zoneEtude1, cache=TRUE}
+dfUSR <-  read_sf("../../données Mapuce_backup/usr_mapuce_paris.geojson")
+st_crs(dfUSR)
+paris <-  dfUSR %>% filter(startsWith(code_insee,"75"))
+dep92 <-  dfUSR %>% filter(startsWith(code_insee,"92"))
+dep93<-  dfUSR %>% filter(startsWith(code_insee,"93"))
+dep94 <-  dfUSR %>% filter(startsWith(code_insee,"94"))
+IdF <-  rbind(paris, dep92, dep93, dep94)
+plot(IdF$geometry, border="lightgray",lwd=0.2 )                 
+plot(paris$geometry, add=T, border="orange", lwd=0.2)
+```
+
+
+On récupère la bounding box  des points MesoNH, qu'on agrandit un peu pour que les points ne soient pas collés au bord.  
+
+```{r zoneEtude2, cache=TRUE}
+emprise_sf <-  st_bbox(dataMeso)
+emprise_sf <-  st_as_sfc(emprise_sf)
+#enlarge bbox to get approx. one extra cube width around the corner points
+emprise_sf <- st_buffer(emprise_sf, dist=400) 
+emprise_sf <-  st_as_sfc(st_bbox(emprise_sf)) 
+#convert back to sf object
+emprise_sf <-  emprise_sf %>% st_geometry %>% st_sf()
+#display
+par(mar=c(0,0,0,0))
+plot(IdF$geometry, border="lightgray",lwd=0.2 )                 
+plot(paris$geometry, add=T, border="orange", lwd=0.2)
+plot(dataMeso[,1], add=T, alpha=0.5)
+plot(emprise_sf, add=T, border="purple")
+```
+
+
+Enfin , on ne garde plus que l'intersection entre les USR d'Ile de France et l'emprise des points MesoNH
+
+```{r zoneEtude3, cache=TRUE, warning=FALSE}
+zoneEtude <-  st_intersection(emprise_sf, IdF)
+par(mar=c(0,0,0,0))
+plot(zoneEtude$geometry, border="gray", lwd=0.4)
+plot(dataMeso[,1], add=T, pch=16, cex=0.5)
+```
+
+
+on sauvegarde la zone d'étude où on veut : 
+
+```{r savezone, eval=FALSE}
+st_write(zoneEtude, "./indicateurs_UHI/USR_MAPUCE_Paris/zoneEtudeUSR.shp")
+```
+
+
+### Sélection des données d'îlots de chaleur de la zone d'étude 
+
+**Attention** il ne s'agit pas d'étudier les données UHI à la place des données MesoNH.
 
 
 
-## 
+
+
+
+
+## Enrichir les données 
+
+### Avec des indicateurs calculés par nos soins
+
+### Avec des données supplémentaires 
