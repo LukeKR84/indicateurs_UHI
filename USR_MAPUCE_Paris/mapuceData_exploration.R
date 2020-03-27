@@ -72,3 +72,28 @@ names(zoneEtude)
 st_write(zoneEtude, "./indicateurs_UHI/zoneEtudeUSR.shp")
 
 
+## UHI 
+
+
+uhi <- st_read("./UHI_2scenarios/Paris_icu_hot_summer_1.shp")  
+
+
+uhi <-  st_transform(uhi, 2154)
+
+dev.off()
+par(mar=c(0,0,0,0))
+plot(uhi[1], border=NA, lwd=0.1)
+plot(zoneEtude$geometry, border= "white", add=TRUE)
+
+plot(zoneEtude$geometry,lwd=0.3)
+plot(uhi[1], border=NA, lwd=0.1, add=T, alpha=0.9)
+plot(zoneEtude$geometry,lwd=0.3, add=T)
+
+
+
+
+
+
+
+
+

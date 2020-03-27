@@ -38,7 +38,7 @@ Les données mesoNH dont je dispose sont dans des fichier CSV. J'ai choisi le fi
 ### Température
 
 
-La température se trouve dans les premières colonnes du tableau de données mesoNH:
+La température se trouve dans les colonnes 33-64 du tableau de données mesoNH:
 
 ```{r meso1, cache=TRUE}
 dataMeso <-  read.csv("../data_mesoNH_point_O.csv")
@@ -135,16 +135,61 @@ st_write(zoneEtude, "./indicateurs_UHI/USR_MAPUCE_Paris/zoneEtudeUSR.shp")
 
 ### Sélection des données d'îlots de chaleur de la zone d'étude 
 
-**Attention** il ne s'agit pas d'étudier les données UHI à la place des données MesoNH.
+**Attention** il ne s'agit pas d'étudier les données UHI à la place des données MesoNH, mais de manipuler les données de chaleurs sur la zone d'étude , pour voir ce que ça donne. Les données d'intérêt principal sont les données MesoNH! 
+
+
+Nous allons nous intéresser au premier scénario. 
+On charge puis on affiche affiche l'intégralité du scénario 1 sur Paris.
+
+```{r uhi1, cache=TRUE}
+uhi <- st_read("../UHI_2scenarios/Paris_icu_hot_summer_1.shp")  
+st_crs(uhi) <-  2154
+par(mar=c(0,0,0,0))
+plot(uhi[1], border=NA, lwd=0.1)
+```
+
+
+
+On voit bien la zone chaude de Paris intra-muros ! 
+
+
+
+Superposition de la géométrie des USR de la zone d'étude et des données des UHI
+
+```{r uhi2, cache=TRUE}
+
+uhi <- st_intersection(emprise_sf,uhi)
+par(mar=c(0,0,0,0))
+plot(zoneEtude$geometry,lwd=0.3)
+plot(uhi[1], border=NA, lwd=0.1, add=T )
+plot(zoneEtude$geometry,lwd=0.3, add=T)
+
+```
 
 
 
 
+#  A venir : 
+
+les USR (ou tout autre maillage pertinent à notre échelle), ont des attributs calculés lors du prjet MApUCE. Pour notre analyse visuelle et statistique, il faut pouvoir comparer des attributs morphologiques et climatiques de ces USR
+
+
+Il faut donc :
+  - doter les USR de nouveaux attributs (morphologiques) calculés par nous (s'il y a lieu)
+  - doter les USR des attributs des points MesoNH (lesquels ? pour le moment THT_1)
+  - eventuellement doter les USR des valeurs UHI calculés dans les scénarios.
 
 
 
 ## Enrichir les données 
 
-### Avec des indicateurs calculés par nos soins
+### Enrichir avec des indicateurs calculés par nos soins
 
-### Avec des données supplémentaires 
+#### Indicateurs de la litterature 
+
+
+### Enrichir avec des données supplémentaires 
+
+#### espaces verts
+
+#### pollution
