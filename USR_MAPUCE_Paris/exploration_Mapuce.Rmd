@@ -3,8 +3,9 @@ title: "Exploration des données MApUCE"
 author: "team stage urclim"
 date: "2020"
 output: 
-  html_document:
+  pdf_document:
     toc: true
+    toc_depth: 3
 ---
 
 ```{r setup, include=FALSE}

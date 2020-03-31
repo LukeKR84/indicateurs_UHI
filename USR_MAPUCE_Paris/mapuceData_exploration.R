@@ -75,7 +75,7 @@ st_write(zoneEtude, "./indicateurs_UHI/zoneEtudeUSR.shp")
 ## UHI 
 
 
-uhi <- st_read("./UHI_2scenarios/Paris_icu_hot_summer_1.shp")  
+uhi <- st_read("./indicateurs_UHI/UHI_2scenarios/Paris_icu_hot_summer_1.shp")  
 
 
 uhi <-  st_transform(uhi, 2154)
