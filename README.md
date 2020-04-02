@@ -17,7 +17,7 @@ Définition : La somme de la surface des zones végétalisées comme des parcs,
 **Height of roughness elements (HRE)**
 Définition : La hauteur moyenne de la canopée urbaine. Pour une zone donnée, l'HRE est égale à la somme des emprises des bâtiments multiplié par la hauteur de ces bâtiments et divisé par la surface de la zone. 
 Référence : The height of roughness elements or absolute roughness is the mean height of the urban canopy. For a given reference area (the circular buffer shown in Fig. 2a), it is equal to the sum of the surfaces of the building footprints (or portions of building footprints) included in the reference zone, multiplied by the respective building heights and divided by the total reference area. (Rodler et Leduc, 2019, p.9)
-![Fig_2a](/img_readme/fig2a.png =350x350)
+![Fig_2a](/img_readme/fig2a.png =350x)
 
  **Aspect ratio**  : 
 Intéressant mais mieux adapté à une petite zone. A l'échelle d'une agglomération, cet indicateur est compliqué à calculer. 
