@@ -1,0 +1,5 @@
+version for dataset:	Paris
+TA id:	Paris_GuillaumeDumas_MF_20161001
+author:	to be added
+TA hash:	8db0b098d9d11b4d84c251792f5e8fc8
+LCZ map hash:	fa18e81e302e3f066edd3bd3b5664ef2
