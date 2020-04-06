@@ -192,44 +192,6 @@ plot(zoneDelicates$geometry, col="palegreen")
 plot(zoneUSRregulieres["TEMP"], add=T)
 
 
-plot(zoneUSRregulieres["TEMP"])
-
-
-st_crs(zoneDelicates)
-st_crs(zoneUSRregulieres)
-
-
-myusr <- zoneUSRregulieres %>% filter(pk_usr==1000094175)
-
-
-idxVoisins <-  st_is_within_distance(myusr, temperature_sf, seuil)
-idxVoisins <- idxVoisins %>% unlist()
-THT_Voisins <-temperature_sf[idxVoisins,"THT_1"]  
-dist_i_Voisins <-  st_distance(myusr,THT_Voisins,by_element = T)
-
-
-
-THT_moy <-  sum(as.vector(1/dist_i_Voisins) * THT_Voisins$THT_1)  /   (sum(1/dist_i_Voisins) %>%  as.vector())
-
-
-plot(temperature_sf[1], add=T)
-
-
-#####################################################
-
-
-
-lcz_osm <-  st_read("./osm_paris/rsu_lcz.geojson")
-lcz_osm <-  st_transform(lcz_osm, 2154)
-usrPaname <-  st_read("./données Mapuce_backup/usr_mapuce_paris.geojson")
-st_crs(usrPaname)
-
-lczZoneEtude  <-  st_intersection(lcz_osm, emprise_sf)
-dev.off()
-plot(lcz_osm$geometry,  border="pink")
-
-
-
 
 
 
