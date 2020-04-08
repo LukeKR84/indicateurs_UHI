@@ -92,8 +92,18 @@ plot(zoneEtude$geometry,lwd=0.3, add=T)
 
 
 
+lcz <-  read_sf("./osm_paris/rsu_lcz.geojson")
+lcz <-  st_transform(lcz, 2154)
+usr <-  read_sf("./indicateurs_UHI/USR_MAPUCE_Paris/zoneEtudeUSR.shp")
 
-
-
+usr <-  read_sf("./données Mapuce_backup/usr_mapuce_paris.geojson")
+usr <-  usr %>% filter(startsWith(code_insee,"75"))
+st_crs(usr)
+st_crs(lcz)
+dev.off()
+png("superposition.png", height = 800, width = 1100)
+par(mar=c(0,0,0,0))
+plot(usr$geometry, bg="grey", border="black")
+plot(lcz$geometry, border="#FFFFFF88", add=T )
 
 

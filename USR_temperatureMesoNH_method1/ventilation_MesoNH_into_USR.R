@@ -51,7 +51,7 @@ library(sp)
 # conversion to SP format
 SP_temperature_sf <-  as_Spatial(temperature_sf)
 SP_temp_pts <- SpatialPoints(SP_temperature_sf)
-"raster creation"
+#raster creation
 
 
 # order is xmin xmax ymin y max
@@ -98,13 +98,14 @@ poly_raster %>% st_perimeter()
 
 
 
-dev.off()
+
+# png("./zones_delicates.png", width = 800, height = 800)
 par(mar=c(0,0,0,0))
 plot(zoneEtude$geometry, border="darkgrey", lwd=0.2)
 plot(poly_raster[1], pal=sf.colors(n = 13,alpha=0.2), add=T, border="white", lwd=0.3)
 plot(bigArea$geometry, add=T, col="palegreen", border=NA)
 plot(bigPerim$geometry, add=T, border="firebrick", lwd=0.9)
-
+# dev.off()
 
 zoneDelicates <-  rbind(bigArea, bigPerim)
 rm(bigArea, bigPerim)
@@ -185,11 +186,32 @@ zoneUSRregulieres[i,"TEMP"] <-  THT_moy
 
 
 
-st_write(zoneUSRregulieres, "./indicateurs_UHI/USR_temperatureMesoNH_method1/zoneEtude_temp_method1.geojson")
+# st_write(zoneUSRregulieres, "./indicateurs_UHI/USR_temperatureMesoNH_method1/zoneEtude_temp_method1.geojson")
 
 dev.off()
 plot(zoneDelicates$geometry, col="palegreen")
 plot(zoneUSRregulieres["TEMP"], add=T)
+
+
+
+
+
+#### 
+
+#Methode 2  : echantilloner des points dans la géométrie 
+# moyenner les temperatures de ces points 
+
+
+fivePointsbyUSR <-  rep.int(1, nrow(zoneEtude))
+
+
+plot(zoneEtude[1])
+
+rnpts <-  st_sample(zoneEtude$geometry,size = fivePointsbyUSR,  type = "random")
+plot(rnpts)
+
+
+
 
 
 
