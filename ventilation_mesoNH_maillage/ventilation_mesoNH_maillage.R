@@ -139,8 +139,7 @@ strategie2 <- function(zoneEtude, poly_raster, aggreg,column_names){
     myusr <- zoneEtude[i, ]
       rndpts <-  st_sample(myusr$geometry, size = 10,  type = "random")
       idxCell <-  st_within(rndpts, poly_raster) %>%  unlist()
-      # temper <-  aggreg(poly_raster[idxCell, "TEB_T1", drop = T])
-      temper <- sapply(polyMesoNH[idxCell, column_names, drop=T], aggreg)
+      temper <- sapply(poly_raster[idxCell, column_names, drop=T], aggreg)
       zoneEtude[i, column_names] <-  temper
     
     
@@ -151,6 +150,22 @@ strategie2 <- function(zoneEtude, poly_raster, aggreg,column_names){
   
   return(zoneEtude)
 }
+
+#  variante de la strategie 2 en utilisant le voronoi des points plutot que le raster .
+# le quadrillage va donc suivre les points (meilleure découpage de  l'espace couvert par chaque point)
+strategie3 <- function(meso_sf, zone, buff_dist=0, column_names){
+  
+  rect <-  create_extentRectangle(meso_sf, buff_dist)
+  vor <-  st_voronoi(st_union(meso_sf), rect)
+  vor <-  st_collection_extract(vor)
+  vor <-  st_intersection(vor, rect)
+  vor <-  st_as_sf(vor)
+  vor <-  st_join(vor, meso_sf)
+  result <-  strategie2(zoneEtude = zone,poly_raster = vor, mean,column_names)
+  return(result)
+  
+}
+
 
 
 
@@ -169,7 +184,7 @@ strat2 <-strategie2(zone, polyMesoNH,mean, column_names)
 
 
 
-png("./indicateurs_UHI/USR_temperatureMesoNH_method1/strategie1.png",width = 800,height = 800)
+# png("./indicateurs_UHI/USR_temperatureMesoNH_method1/strategie1.png",width = 800,height = 800)
 par(mar=c(0,0,0,0))
 plot(strat1["TEB_T1"],main="ventilation TEB_T1 sur USR (s1)")
 dev.off()
@@ -193,18 +208,16 @@ dev.off()
 
 
 
-st_write(strat1,"./indicateurs_UHI/USR_temperatureMesoNH_method1/zone_strat1_full.geojson")
-st_write(strat2,"./indicateurs_UHI/USR_temperatureMesoNH_method1/zone_strat2_full.geojson")
+st_write(strat1,"./indicateurs_UHI/ventilation_mesoNH_maillage//zone_strat1_full.geojson")
+st_write(strat2,"./indicateurs_UHI/ventilation_mesoNH_maillage//zone_strat2_full.geojson")
 
 
 # on garde uniquement les attributs TEB_T
 
 
-col_to_keep <-  c(column_names, "geometry")
 
-st_write(strat1 %>%  select(column_names) ,"./indicateurs_UHI/USR_temperatureMesoNH_method1/zone_strat1_TEB_only.geojson")
-st_write(strat2 %>%  select(column_names) ,"./indicateurs_UHI/USR_temperatureMesoNH_method1/zone_strat2_TEB_only.geojson")
-
+st_write(strat1 %>%  select(column_names) ,"./indicateurs_UHI/ventilation_mesoNH_maillage/zone_strat1_TEB_only.geojson")
+st_write(strat2 %>%  select(column_names) ,"./indicateurs_UHI/ventilation_mesoNH_maillage/zone_strat2_TEB_only.geojson")
 
 
 
@@ -212,6 +225,16 @@ st_write(strat2 %>%  select(column_names) ,"./indicateurs_UHI/USR_temperatureMes
 
 
 
+
+  
+strat3 <-  strategie3(meso_sf, zone, 400, column_names)  
+strat3 <-  st_as_sf(strat3)
+
+st_write(strat3 %>%  select(column_names) ,"./indicateurs_UHI/ventilation_mesoNH_maillage/zone_strat3_TEB_only.shp")
+st_write(strat3,"./indicateurs_UHI/ventilation_mesoNH_maillage//zone_strat3_full.geojson")
+
+
+  
 ##################################################################
 # implémentation alternatives de startegie 1 pour voir le gain de performances
 
