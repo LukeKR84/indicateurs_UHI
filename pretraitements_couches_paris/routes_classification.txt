@@ -1,0 +1,86 @@
+Création du champ 'type'
+CASE
+WHEN  "fclass" LIKE 'service' THEN 'highway'
+WHEN  "fclass" LIKE 'trunk_link' THEN 'highway_link'
+WHEN  "fclass" LIKE 'motorway' THEN 'motorway'
+WHEN  "fclass" LIKE 'motorway_link' THEN 'motorway'
+WHEN  "fclass" LIKE 'primary' THEN 'primary'
+WHEN  "fclass" LIKE 'primary_link' THEN 'primary'
+WHEN  "fclass" LIKE 'secondary'  THEN 'secondary'
+WHEN  "fclass" LIKE 'secondary_link'  THEN 'secondary'
+WHEN  "fclass" LIKE 'tertiary' THEN  'tertiary' 
+WHEN  "fclass" LIKE 'tertiary_link' THEN  'tertiary' 
+WHEN  "fclass" LIKE 'track'  THEN   'track' 
+WHEN  "fclass" LIKE 'track_grade1' THEN 'track' 
+WHEN  "fclass" LIKE 'track_grade2' THEN 'track' 
+WHEN  "fclass" LIKE 'track_grade3' THEN 'track' 
+WHEN  "fclass" LIKE 'track_grade4' THEN 'track' 
+WHEN  "fclass" LIKE 'track_grade5' THEN   'track' 
+WHEN  "fclass" LIKE 'trunk' THEN  'trunk'  
+WHEN  "fclass" LIKE  'unclassified' THEN  'unclassified' 
+ELSE 'bollocks'
+END
+
+On sélectionne toutes les entités sauf celles classées "bollocks", puis on les export dans un shapefile qu'on recharge 
+en QGIS par la suite. 
+
+Création du champ 'width' en suivant l'exemple des routes créé par le Geoclimate Chain
+CASE
+WHEN  "type" LIKE 'highway' THEN 8
+WHEN  "type" LIKE 'highway_link' THEN 8
+WHEN  "type" LIKE 'motorway'  THEN 24
+WHEN  "type" LIKE 'primary'  THEN 10
+WHEN  "type" LIKE 'residential' THEN 8
+WHEN  "type" LIKE 'secondary'  THEN 10
+WHEN  "type" LIKE 'tertiary'  THEN 8
+WHEN  "type" LIKE 'track'  THEN 2
+WHEN  "type" LIKE 'trunk'  THEN 16
+WHEN  "type" LIKE 'unclassified'  THEN 3
+END
+
+Open data source - largeur des routes : 
+https://www.data.gouv.fr/fr/datasets/largeur-de-routes-sur-le-reseau-routier-national/
+
+Révision du champ 'type'
+CASE
+WHEN  "fclass" LIKE 'service' THEN 'highway'
+WHEN  "fclass" LIKE 'trunk_link' THEN 'highway_link'
+WHEN  "fclass" LIKE 'residential' THEN 'residential'
+WHEN  "fclass" LIKE 'motorway' THEN 'motorway'
+WHEN  "fclass" LIKE 'motorway_link' THEN 'm_link'
+WHEN  "fclass" LIKE 'primary' THEN 'primary'
+WHEN  "fclass" LIKE 'primary_link' THEN 'p_link'
+WHEN  "fclass" LIKE 'secondary'  THEN 'secondary'
+WHEN  "fclass" LIKE 'secondary_link'  THEN 's_link'
+WHEN  "fclass" LIKE 'tertiary' THEN  'tertiary' 
+WHEN  "fclass" LIKE 'tertiary_link' THEN  't_link' 
+WHEN  "fclass" LIKE 'track' THEN 'track' 
+WHEN  "fclass" LIKE 'track_grade1' THEN 'track' 
+WHEN  "fclass" LIKE 'track_grade2' THEN 'track' 
+WHEN  "fclass" LIKE 'track_grade3' THEN 'track' 
+WHEN  "fclass" LIKE 'track_grade4' THEN 'track' 
+WHEN  "fclass" LIKE 'track_grade5' THEN   'track' 
+WHEN  "fclass" LIKE 'trunk' THEN  'trunk'  
+WHEN  "fclass" LIKE  'unclassified' THEN  'unclassified' 
+ELSE 'bollocks'
+END
+
+
+
+Révision du champ 'width
+CASE
+WHEN  "type" LIKE 'highway' THEN 4
+WHEN  "type" LIKE 'highway_link' THEN 3
+WHEN  "type" LIKE 'residential' THEN 3
+WHEN  "type" LIKE 'motorway'  THEN 16
+WHEN  "type" LIKE 'm_link'  THEN 4
+WHEN  "type" LIKE 'primary'  THEN 4
+WHEN  "type" LIKE 'p_link'  THEN 3
+WHEN  "type" LIKE 'secondary'  THEN 4
+WHEN  "type" LIKE 's_link'  THEN 3
+WHEN  "type" LIKE 'tertiary'  THEN 3
+WHEN  "type" LIKE 't_link'  THEN 3
+WHEN  "type" LIKE 'track'  THEN 2
+WHEN  "type" LIKE 'trunk'  THEN 10
+WHEN  "type" LIKE 'unclassified'  THEN 3
+END
