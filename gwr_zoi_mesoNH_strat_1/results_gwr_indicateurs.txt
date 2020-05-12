@@ -1,0 +1,159 @@
+Résultats call - gwr() indicateurs strat_1
+
+BSF 
+Call:
+gwr(formula = zoi_bsf_spatial$bsf ~ zoi_bsf_spatial$TEB_T1, data = zoi_bsf_spatial,
+    bandwidth = bp, hatmatrix = TRUE, se.fit = TRUE, cl = cl)
+Kernel function: gwr.Gauss
+Fixed bandwidth: 143.9555
+Summary of GWR coefficient estimates at data points:
+                              Min.     1st Qu.      Median     3rd Qu.        Max.   Global
+X.Intercept.           -1936.36584  -129.31226   -39.70198    39.37888  1311.63687 -28.9273
+zoi_bsf_spatial.TEB_T1    -4.37341    -0.12978     0.13418     0.43312     6.45876   0.0979
+Number of data points: 8131
+Effective number of parameters (residual: 2traceS - traceS'S): 2018.922
+Effective degrees of freedom (residual: 2traceS - traceS'S): 6112.078
+Sigma (residual: 2traceS - traceS'S): 0.1093701
+Effective number of parameters (model: traceS): 1442.611
+Effective degrees of freedom (model: traceS): 6688.389
+Sigma (model: traceS): 0.1045519
+Sigma (ML): 0.09482457
+AICc (GWR p. 61, eq 2.33; p. 96, eq. 4.21): -11723.04
+AIC (GWR p. 96, eq. 4.22): -13791.44
+Residual sum of squares: 73.11151
+Quasi-global R2: 0.6612619 
+
+BSF bp recalculated with GWmodel
+***********************************************************************
+   *                       Package   GWmodel                             *
+   ***********************************************************************
+   Program starts at: 2020-05-12 13:26:52 
+   Call:
+   gwr.basic(formula = bsf ~ TEB_T1, data = zoi_bsf_spatial, bw = bpa_bsf, 
+    adaptive = T)
+
+   Dependent (y) variable:  bsf
+   Independent variables:  TEB_T1
+   Number of data points: 8131
+   ***********************************************************************
+   *                    Results of Global Regression                     *
+   ***********************************************************************
+
+   Call:
+    lm(formula = formula, data = data)
+
+   Residuals:
+     Min       1Q   Median       3Q      Max 
+-0.50970 -0.08992  0.01687  0.10495  0.60569 
+
+   Coefficients:
+                 Estimate Std. Error t value Pr(>|t|)    
+   (Intercept) -28.927269   0.625809  -46.22   <2e-16 ***
+   TEB_T1        0.097891   0.002091   46.81   <2e-16 ***
+
+   ---Significance stars
+   Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+   Residual standard error: 0.1446 on 8129 degrees of freedom
+   Multiple R-squared: 0.2123
+   Adjusted R-squared: 0.2122 
+   F-statistic:  2192 on 1 and 8129 DF,  p-value: < 2.2e-16 
+   ***Extra Diagnostic information
+   Residual sum of squares: 170.0034
+   Sigma(hat): 0.1446139
+   AIC:  -8366.848
+   AICc:  -8366.845
+   ***********************************************************************
+   *          Results of Geographically Weighted Regression              *
+   ***********************************************************************
+
+   *********************Model calibration information*********************
+   Kernel function: bisquare 
+   Adaptive bandwidth: 27 (number of nearest neighbours)
+   Regression points: the same locations as observations are used.
+   Distance metric: Euclidean distance metric is used.
+
+   ****************Summary of GWR coefficient estimates:******************
+                    Min.     1st Qu.      Median     3rd Qu.      Max.
+   Intercept -2433.43941  -144.08577   -45.21593    50.60130 1928.5285
+   TEB_T1       -6.41350    -0.16766     0.15256     0.48289    8.1165
+   ************************Diagnostic information*************************
+   Number of data points: 8131 
+   Effective number of parameters (2trace(S) - trace(S'S)): 1540.15 
+   Effective degrees of freedom (n-2trace(S) + trace(S'S)): 6590.85 
+   AICc (GWR book, Fotheringham, et al. 2002, p. 61, eq 2.33): -11949.01 
+   AIC (GWR book, Fotheringham, et al. 2002,GWR p. 96, eq. 4.22): -13456.75 
+   Residual sum of squares: 79.1132 
+   R-square value:  0.633455 
+   Adjusted R-square value:  0.5477878 
+
+   ***********************************************************************
+   Program stops at: 2020-05-12 13:27:15 
+
+HRE: 
+Call:
+gwr(formula = zoi_hre_spatial$hre ~ zoi_hre_spatial$TEB_T1, data = zoi_hre_spatial, 
+    bandwidth = bp_hre, hatmatrix = TRUE, se.fit = TRUE)
+Kernel function: gwr.Gauss 
+Fixed bandwidth: 205.7736 
+Summary of GWR coefficient estimates at data points:
+                              Min.     1st Qu.      Median     3rd Qu.        Max.    Global
+X.Intercept.           -2.2704e+04 -1.9276e+03 -8.4362e+02  6.8316e+01  1.1811e+04 -786.8738
+zoi_hre_spatial.TEB_T1 -3.9363e+01 -2.0437e-01  2.8411e+00  6.4625e+00  7.6140e+01    2.6496
+Number of data points: 8131 
+Effective number of parameters (residual: 2traceS - traceS'S): 1100.413 
+Effective degrees of freedom (residual: 2traceS - traceS'S): 7030.587 
+Sigma (residual: 2traceS - traceS'S): 2.367445 
+Effective number of parameters (model: traceS): 772.8042 
+Effective degrees of freedom (model: traceS): 7358.196 
+Sigma (model: traceS): 2.314142 
+Sigma (ML): 2.201424 
+AICc (GWR p. 61, eq 2.33; p. 96, eq. 4.21): 37617.81 
+AIC (GWR p. 96, eq. 4.22): 36680 
+Residual sum of squares: 39405.01 
+Quasi-global R2: 0.6438815 
+
+ISF
+Call:
+gwr(formula = zoi_isf_spatial$isf ~ zoi_isf_spatial$TEB_T1, data = zoi_isf_spatial, 
+    bandwidth = bp_isf, hatmatrix = TRUE, se.fit = TRUE)
+Kernel function: gwr.Gauss 
+Fixed bandwidth: 149.6451 
+Summary of GWR coefficient estimates at data points:
+                              Min.     1st Qu.      Median     3rd Qu.        Max.  Global
+X.Intercept.           -1.9246e+03 -4.4508e+01  6.4529e-01  4.7159e+01  2.5171e+03 -0.2376
+zoi_isf_spatial.TEB_T1 -8.4327e+00 -1.5702e-01 -1.9129e-03  1.4891e-01  6.4571e+00  0.0011
+Number of data points: 8701 
+Effective number of parameters (residual: 2traceS - traceS'S): 1934.162 
+Effective degrees of freedom (residual: 2traceS - traceS'S): 6766.838 
+Sigma (residual: 2traceS - traceS'S): 0.09708186 
+Effective number of parameters (model: traceS): 1372.184 
+Effective degrees of freedom (model: traceS): 7328.816 
+Sigma (model: traceS): 0.09328548 
+Sigma (ML): 0.08561431 
+AICc (GWR p. 61, eq 2.33; p. 96, eq. 4.21): -14818.59 
+AIC (GWR p. 96, eq. 4.22): -16707.87 
+Residual sum of squares: 63.77668 
+Quasi-global R2: 0.3960988 
+
+PSF
+Call:
+gwr(formula = zoi_psf_spatial$psf ~ zoi_psf_spatial$TEB_T1, data = zoi_psf_spatial, 
+    bandwidth = bp_psf, hatmatrix = TRUE, se.fit = TRUE)
+Kernel function: gwr.Gauss 
+Fixed bandwidth: 323.231 
+Summary of GWR coefficient estimates at data points:
+                              Min.     1st Qu.      Median     3rd Qu.        Max. Global
+X.Intercept.           -536.385104  -22.864292   36.487894  117.964839  575.995861 20.536
+zoi_psf_spatial.TEB_T1   -1.932055   -0.393595   -0.121151    0.076848    1.799747 -0.068
+Number of data points: 2647 
+Effective number of parameters (residual: 2traceS - traceS'S): 445.7015 
+Effective degrees of freedom (residual: 2traceS - traceS'S): 2201.298 
+Sigma (residual: 2traceS - traceS'S): 0.1827177 
+Effective number of parameters (model: traceS): 318.8303 
+Effective degrees of freedom (model: traceS): 2328.17 
+Sigma (model: traceS): 0.1776694 
+Sigma (ML): 0.1666261 
+AICc (GWR p. 61, eq 2.33; p. 96, eq. 4.21): -1247.119 
+AIC (GWR p. 96, eq. 4.22): -1656.172 
+Residual sum of squares: 73.49199 
+Quasi-global R2: 0.5852256 
