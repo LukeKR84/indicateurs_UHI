@@ -1,0 +1,22 @@
+
+
+"pk_usr"       USR ID
+"code_ns"      Code INSEE
+"dcomirs"      Code IRIS
+"ins_ndv"      INSEE individus
+"ins_mng"      INSEE ménages
+"ins_mn_c"     INSEE ménages en logement collectif
+"ins_mn_s"     INSEE surfaces
+"ins_sr_"      INSEE surfaces en logement collectif
+"floor"        Somme des surfaces de plancher
+"flor_rt"      floor ratio
+"cmpc_mn_n"    moyenne non pondérée de la compacité des bâtiments
+"cmpc_mn_w"    moyenne pondérée (par la surface des bâtiments) de la compacité des bâtiments
+"cntg_mn"      moyenne de la contiguïté des bâtiments
+"p_vl_r_"      volume passif moyen
+"b_hls__"      surface moyenne de trous dans les blocs de l'USR
+"b_std__"      hauteur moyenne des blocs
+"b_m_nw_"      moyenne non pondérée de la compacité des blocs
+"b_m_w_c"      moyenne pondérée (par la surface des blocs) de la compacité des blocs
+"b_std_c"      écart-type de la compacité des blocs
+"bld_dns"      densité surfacique de bâti
