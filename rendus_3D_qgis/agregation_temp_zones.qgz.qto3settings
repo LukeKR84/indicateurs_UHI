@@ -1,0 +1,125 @@
+{
+  "LAYERS": [
+    {
+      "geomType": 1,
+      "layerId": "strat2_tempZones_centroides_d3037cb8_1135_4baa_ae1f_fb2d123558ee",
+      "name": "strat2_tempZones_centroides",
+      "properties": {
+        "checkBox_Clip": true,
+        "checkBox_ExportAttrs": false,
+        "checkBox_Visible": true,
+        "comboBox_Label": null,
+        "comboBox_ObjectType": "Cylinder",
+        "comboBox_altitudeMode": null,
+        "fieldExpressionWidget_altitude": "( \"ave_temp\"   - 297.37784)*  \"ave_temp\"  ",
+        "labelHeightWidget": {
+          "comboData": 0,
+          "comboText": "Absolute",
+          "editText": "1247",
+          "type": 6
+        },
+        "radioButton_Expression": true,
+        "radioButton_IntersectingFeatures": true,
+        "styleWidget0": {
+          "comboData": 1,
+          "comboText": "Feature style",
+          "editText": "'0xfef7cd'",
+          "type": 2
+        },
+        "styleWidget1": {
+          "comboData": 1,
+          "comboText": "Feature style",
+          "editText": "",
+          "type": 5
+        },
+        "styleWidget2": {
+          "comboData": null,
+          "comboText": "Expression",
+          "editText": "100",
+          "type": 1
+        },
+        "styleWidget3": {
+          "comboData": null,
+          "comboText": "Expression",
+          "editText": "( \"bsf\" )*4000",
+          "type": 1
+        },
+        "styleWidget4": {},
+        "styleWidget5": {}
+      },
+      "visible": true
+    },
+    {
+      "geomType": 3,
+      "layerId": "strat2_tempZones_92c9140b_c73b_4018_ac94_89d1142b3e62",
+      "name": "strat2_tempZones",
+      "properties": {},
+      "visible": false
+    },
+    {
+      "geomType": 3,
+      "layerId": "zoi_tempZones_2_edaba04f_3ebf_498e_9103_e3da0e4f22f2",
+      "name": "zoi_tempZones_2",
+      "properties": {
+        "checkBox_Clip": true,
+        "checkBox_ExportAttrs": false,
+        "checkBox_Visible": true,
+        "comboBox_Label": null,
+        "comboBox_ObjectType": "Extruded",
+        "comboBox_altitudeMode": null,
+        "fieldExpressionWidget_altitude": "0",
+        "labelHeightWidget": {
+          "comboData": 0,
+          "comboText": "Absolute",
+          "editText": "1247",
+          "type": 6
+        },
+        "radioButton_Expression": true,
+        "radioButton_IntersectingFeatures": true,
+        "styleWidget0": {
+          "comboData": 1,
+          "comboText": "Feature style",
+          "editText": "",
+          "type": 2
+        },
+        "styleWidget1": {
+          "comboData": 1,
+          "comboText": "Feature style",
+          "editText": "",
+          "type": 5
+        },
+        "styleWidget2": {
+          "comboData": null,
+          "comboText": "Expression",
+          "editText": " (\"TEB_T1\"  - 297.37784)* \"TEB_T1\"  ",
+          "type": 1
+        },
+        "styleWidget3": {
+          "comboData": 0,
+          "comboText": "(No Edge)",
+          "editText": "0",
+          "type": 7
+        },
+        "styleWidget4": {},
+        "styleWidget5": {}
+      },
+      "visible": true
+    },
+    {
+      "geomType": 0,
+      "layerId": "FLAT",
+      "name": "Flat Plane",
+      "properties": {},
+      "visible": false
+    }
+  ],
+  "SCENE": {
+    "checkBox_autoZShift": false,
+    "colorButton_Color": "0xe4dfdf",
+    "comboBox_MaterialType": 0,
+    "lineEdit_BaseSize": "100",
+    "lineEdit_zFactor": "1.0",
+    "lineEdit_zShift": "0",
+    "radioButton_Color": true
+  }
+}

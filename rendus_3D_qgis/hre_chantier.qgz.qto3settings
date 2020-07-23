@@ -1,0 +1,529 @@
+{
+  "LAYERS": [
+    {
+      "geomType": 1,
+      "layerId": "paris_intramuros_centroides_e10fb5d5_322a_4df4_8e1c_8d3a278d11a2",
+      "name": "paris_intramuros_centroides",
+      "properties": {
+        "checkBox_Clip": true,
+        "checkBox_ExportAttrs": false,
+        "checkBox_Visible": true,
+        "comboBox_Label": null,
+        "comboBox_ObjectType": "Cylinder",
+        "comboBox_altitudeMode": null,
+        "fieldExpressionWidget_altitude": "0",
+        "labelHeightWidget": {
+          "comboData": 0,
+          "comboText": "Absolute",
+          "editText": "1814",
+          "type": 6
+        },
+        "radioButton_Expression": true,
+        "radioButton_IntersectingFeatures": true,
+        "styleWidget0": {
+          "comboData": 1,
+          "comboText": "Feature style",
+          "editText": "",
+          "type": 2
+        },
+        "styleWidget1": {
+          "comboData": 1,
+          "comboText": "Feature style",
+          "editText": "",
+          "type": 5
+        },
+        "styleWidget2": {
+          "comboData": null,
+          "comboText": "Expression",
+          "editText": "50",
+          "type": 1
+        },
+        "styleWidget3": {
+          "comboData": null,
+          "comboText": "Expression",
+          "editText": "CASE\r\nWHEN  \"TEB_T1\" >= 300 THEN  \"TEB_T1\" * 4\r\nWHEN \"TEB_T1\" >= 299 THEN \"TEB_T1\" * 2\r\nWHEN \"TEB_T1\" >= 298 THEN \"TEB_T1\" * 1\r\nWHEN \"TEB_T1\" >= 297 THEN \"TEB_T1\" * 0.5\r\nEND",
+          "type": 1
+        },
+        "styleWidget4": {},
+        "styleWidget5": {}
+      },
+      "visible": false
+    },
+    {
+      "geomType": 1,
+      "layerId": "new_temp_points_46eec0b4_a18e_458f_8e66_529f2d30bf3b",
+      "name": "new_temp_points",
+      "properties": {},
+      "visible": false
+    },
+    {
+      "geomType": 1,
+      "layerId": "tempZone_centroides_final_420406a0_fa77_4422_b795_70e543d4cfab",
+      "name": "tempZone_centroides_final",
+      "properties": {},
+      "visible": false
+    },
+    {
+      "geomType": 1,
+      "layerId": "bsfR2_centroides_ab03083b_611f_4f45_a52a_4137e7d5ade3",
+      "name": "bsfR2_centroides",
+      "properties": {
+        "checkBox_Clip": true,
+        "checkBox_ExportAttrs": false,
+        "checkBox_Visible": true,
+        "comboBox_Label": null,
+        "comboBox_ObjectType": "Cone",
+        "comboBox_altitudeMode": null,
+        "fieldExpressionWidget_altitude": "200",
+        "labelHeightWidget": {
+          "comboData": 0,
+          "comboText": "Absolute",
+          "editText": "907",
+          "type": 6
+        },
+        "radioButton_Expression": true,
+        "radioButton_IntersectingFeatures": true,
+        "styleWidget0": {
+          "comboData": 1,
+          "comboText": "Feature style",
+          "editText": "",
+          "type": 2
+        },
+        "styleWidget1": {
+          "comboData": 1,
+          "comboText": "Feature style",
+          "editText": "",
+          "type": 5
+        },
+        "styleWidget2": {
+          "comboData": null,
+          "comboText": "Expression",
+          "editText": "20",
+          "type": 1
+        },
+        "styleWidget3": {
+          "comboData": null,
+          "comboText": "Expression",
+          "editText": "CASE\r\nWHEN  \"r2\" >= 0.99 THEN \"r2\" * 1000\r\nWHEN \"r2\" >= 0.97 THEN \"r2\" * 850\r\nWHEN \"r2\" >= 0.95 THEN \"r2\" * 650\r\nWHEN \"r2\" >= 0.9 THEN \"r2\" * 450\r\nWHEN \"r2\" >= 0.8 THEN \"r2\" * 250\r\nWHEN \"r2\" >= 0.7 THEN \"r2\" * 150\r\nWHEN \"r2\" >= 0.6 THEN \"r2\" * 50\r\nELSE \"r2\" * 25\r\nEND",
+          "type": 1
+        },
+        "styleWidget4": {},
+        "styleWidget5": {}
+      },
+      "visible": false
+    },
+    {
+      "geomType": 3,
+      "layerId": "paris_intramuros_95618dd6_88df_4338_95d7_7aee05037ed2",
+      "name": "paris_intramuros",
+      "properties": {
+        "checkBox_Clip": true,
+        "checkBox_ExportAttrs": false,
+        "checkBox_Visible": true,
+        "comboBox_Label": null,
+        "comboBox_ObjectType": "Extruded",
+        "comboBox_altitudeMode": null,
+        "fieldExpressionWidget_altitude": "0",
+        "labelHeightWidget": {
+          "comboData": 0,
+          "comboText": "Absolute",
+          "editText": "907",
+          "type": 6
+        },
+        "radioButton_Expression": true,
+        "radioButton_IntersectingFeatures": true,
+        "styleWidget0": {
+          "comboData": 1,
+          "comboText": "Feature style",
+          "editText": "",
+          "type": 2
+        },
+        "styleWidget1": {
+          "comboData": 1,
+          "comboText": "Feature style",
+          "editText": "",
+          "type": 5
+        },
+        "styleWidget2": {
+          "comboData": null,
+          "comboText": "Expression",
+          "editText": "CASE\r\nWHEN  \"TEB_T1\" >= 300 THEN  \"TEB_T1\" * 1\r\nWHEN \"TEB_T1\" >= 299 THEN \"TEB_T1\" * 0.75\r\nWHEN \"TEB_T1\" >= 298 THEN \"TEB_T1\" * 0.5\r\nWHEN \"TEB_T1\" >= 297 THEN \"TEB_T1\" * 0.25\r\nEND",
+          "type": 1
+        },
+        "styleWidget3": {
+          "comboData": 0,
+          "comboText": "(No Edge)",
+          "editText": "0",
+          "type": 7
+        },
+        "styleWidget4": {},
+        "styleWidget5": {}
+      },
+      "visible": false
+    },
+    {
+      "geomType": 3,
+      "layerId": "zoi_tempZones_a4892fd6_44bf_4064_bf8b_8fa234b0b29c",
+      "name": "zoi_tempZones",
+      "properties": {},
+      "visible": false
+    },
+    {
+      "geomType": 3,
+      "layerId": "zoi_indicateurs_strat_1_a11f7550_60f8_410c_a703_873192c06ec1",
+      "name": "zoi_indicateurs_strat_1",
+      "properties": {},
+      "visible": false
+    },
+    {
+      "geomType": 3,
+      "layerId": "paris_intramuros_bsfR2_91b79042_d4c9_4017_85d3_0f05b3929174",
+      "name": "paris_intramuros_bsfR2",
+      "properties": {
+        "checkBox_Clip": true,
+        "checkBox_ExportAttrs": false,
+        "checkBox_Visible": true,
+        "comboBox_Label": null,
+        "comboBox_ObjectType": "Polygon",
+        "comboBox_altitudeMode": null,
+        "fieldExpressionWidget_altitude": "0",
+        "labelHeightWidget": {
+          "comboData": 0,
+          "comboText": "Absolute",
+          "editText": "907",
+          "type": 6
+        },
+        "radioButton_Expression": true,
+        "radioButton_IntersectingFeatures": true,
+        "styleWidget0": {
+          "comboData": 1,
+          "comboText": "Feature style",
+          "editText": "",
+          "type": 2
+        },
+        "styleWidget1": {
+          "comboData": 1,
+          "comboText": "Feature style",
+          "editText": "",
+          "type": 5
+        },
+        "styleWidget2": {},
+        "styleWidget3": {},
+        "styleWidget4": {},
+        "styleWidget5": {}
+      },
+      "visible": false
+    },
+    {
+      "geomType": 1,
+      "layerId": "moyen_bsf_r2_tempZones_aaab3c57_06bf_408f_aa66_973319a671bb",
+      "name": "moyen_bsf_r2_tempZones",
+      "properties": {
+        "checkBox_Clip": true,
+        "checkBox_ExportAttrs": false,
+        "checkBox_Visible": true,
+        "comboBox_Label": null,
+        "comboBox_ObjectType": "Cone",
+        "comboBox_altitudeMode": null,
+        "fieldExpressionWidget_altitude": "( \"temp_zone\" )*175",
+        "labelHeightWidget": {
+          "comboData": 0,
+          "comboText": "Absolute",
+          "editText": "1143",
+          "type": 6
+        },
+        "radioButton_Expression": true,
+        "radioButton_IntersectingFeatures": true,
+        "styleWidget0": {
+          "comboData": 1,
+          "comboText": "Feature style",
+          "editText": "",
+          "type": 2
+        },
+        "styleWidget1": {
+          "comboData": 1,
+          "comboText": "Feature style",
+          "editText": "",
+          "type": 5
+        },
+        "styleWidget2": {
+          "comboData": null,
+          "comboText": "Expression",
+          "editText": "50",
+          "type": 1
+        },
+        "styleWidget3": {
+          "comboData": null,
+          "comboText": "Expression",
+          "editText": "( \"AVG_r2\" )*1000",
+          "type": 1
+        },
+        "styleWidget4": {},
+        "styleWidget5": {}
+      },
+      "visible": true
+    },
+    {
+      "geomType": 1,
+      "layerId": "bsfR2_centroides_zone_d3d57ef2_5cf5_479b_b036_7d81076f82c9",
+      "name": "bsfR2_centroides_zone",
+      "properties": {
+        "checkBox_Clip": true,
+        "checkBox_ExportAttrs": false,
+        "checkBox_Visible": true,
+        "comboBox_Label": null,
+        "comboBox_ObjectType": "Cone",
+        "comboBox_altitudeMode": null,
+        "fieldExpressionWidget_altitude": "( \"TEB_T1\" - 297)* \"TEB_T1\" ",
+        "labelHeightWidget": {
+          "comboData": 0,
+          "comboText": "Absolute",
+          "editText": "762",
+          "type": 6
+        },
+        "radioButton_Expression": true,
+        "radioButton_IntersectingFeatures": true,
+        "styleWidget0": {
+          "comboData": 1,
+          "comboText": "Feature style",
+          "editText": "",
+          "type": 2
+        },
+        "styleWidget1": {
+          "comboData": 1,
+          "comboText": "Feature style",
+          "editText": "",
+          "type": 5
+        },
+        "styleWidget2": {
+          "comboData": null,
+          "comboText": "Expression",
+          "editText": "20",
+          "type": 1
+        },
+        "styleWidget3": {
+          "comboData": null,
+          "comboText": "Expression",
+          "editText": "exp( \"r2\" )*100",
+          "type": 1
+        },
+        "styleWidget4": {},
+        "styleWidget5": {}
+      },
+      "visible": false
+    },
+    {
+      "geomType": 3,
+      "layerId": "r2_bsf_visu_171b5d9a_73e2_4327_b26b_285b63aa3c59",
+      "name": "r2_bsf_visu",
+      "properties": {},
+      "visible": false
+    },
+    {
+      "geomType": 3,
+      "layerId": "r2_asf_visu_d5b76a54_29d9_47df_8087_cc6200152e87",
+      "name": "r2_asf_visu",
+      "properties": {},
+      "visible": false
+    },
+    {
+      "geomType": 1,
+      "layerId": "sample_hre_centroides_29180568_aad3_44f0_927e_a7a1c4235b40",
+      "name": "sample_hre_centroides",
+      "properties": {
+        "checkBox_Clip": true,
+        "checkBox_ExportAttrs": false,
+        "checkBox_Visible": true,
+        "comboBox_Label": null,
+        "comboBox_ObjectType": "Cylinder",
+        "comboBox_altitudeMode": null,
+        "fieldExpressionWidget_altitude": "0",
+        "labelHeightWidget": {
+          "comboData": 0,
+          "comboText": "Absolute",
+          "editText": "282",
+          "type": 6
+        },
+        "radioButton_Expression": true,
+        "radioButton_IntersectingFeatures": true,
+        "styleWidget0": {
+          "comboData": 1,
+          "comboText": "Feature style",
+          "editText": "",
+          "type": 2
+        },
+        "styleWidget1": {
+          "comboData": 1,
+          "comboText": "Feature style",
+          "editText": "",
+          "type": 5
+        },
+        "styleWidget2": {
+          "comboData": null,
+          "comboText": "Expression",
+          "editText": "15",
+          "type": 1
+        },
+        "styleWidget3": {
+          "comboData": null,
+          "comboText": "Expression",
+          "editText": "CASE\r\nWHEN  \"TEB_T1\" >= 300 THEN  \"TEB_T1\" * 1.5\r\nWHEN \"TEB_T1\" >= 299 THEN \"TEB_T1\" * 0.9\r\nWHEN \"TEB_T1\" >= 298 THEN \"TEB_T1\" * 0.7\r\nWHEN \"TEB_T1\" >= 297 THEN \"TEB_T1\" * 0.5\r\nEND",
+          "type": 1
+        },
+        "styleWidget4": {},
+        "styleWidget5": {}
+      },
+      "visible": false
+    },
+    {
+      "geomType": 3,
+      "layerId": "sample_hre_a1969cf4_5082_428c_af5a_719791908d42",
+      "name": "sample_hre",
+      "properties": {
+        "checkBox_Clip": true,
+        "checkBox_ExportAttrs": false,
+        "checkBox_Visible": true,
+        "comboBox_Label": null,
+        "comboBox_ObjectType": "Polygon",
+        "comboBox_altitudeMode": null,
+        "fieldExpressionWidget_altitude": "0",
+        "labelHeightWidget": {
+          "comboData": 0,
+          "comboText": "Absolute",
+          "editText": "282",
+          "type": 6
+        },
+        "radioButton_Expression": true,
+        "radioButton_IntersectingFeatures": true,
+        "styleWidget0": {
+          "comboData": 1,
+          "comboText": "Feature style",
+          "editText": "",
+          "type": 2
+        },
+        "styleWidget1": {
+          "comboData": 1,
+          "comboText": "Feature style",
+          "editText": "",
+          "type": 5
+        },
+        "styleWidget2": {},
+        "styleWidget3": {},
+        "styleWidget4": {},
+        "styleWidget5": {}
+      },
+      "visible": false
+    },
+    {
+      "geomType": 3,
+      "layerId": "r2_hre_visu_c8c48e84_a022_47e1_be61_50f92ea577da",
+      "name": "r2_hre_visu",
+      "properties": {},
+      "visible": false
+    },
+    {
+      "geomType": 3,
+      "layerId": "r2_isf_visu_60d4c4db_2265_4035_aa58_78441d49c28c",
+      "name": "r2_isf_visu",
+      "properties": {},
+      "visible": false
+    },
+    {
+      "geomType": 3,
+      "layerId": "r2_psf_visu_5f34884f_69d2_4326_bb7c_f8ddb9c37a7e",
+      "name": "r2_psf_visu",
+      "properties": {},
+      "visible": false
+    },
+    {
+      "geomType": 3,
+      "layerId": "zoi_tempZones_2_91f74079_8c68_4d4d_92d4_c628e9441538",
+      "name": "zoi_tempZones_2",
+      "properties": {
+        "checkBox_Clip": true,
+        "checkBox_ExportAttrs": false,
+        "checkBox_Visible": true,
+        "comboBox_Label": null,
+        "comboBox_ObjectType": "Extruded",
+        "comboBox_altitudeMode": null,
+        "fieldExpressionWidget_altitude": "0",
+        "labelHeightWidget": {
+          "comboData": 0,
+          "comboText": "Absolute",
+          "editText": "762",
+          "type": 6
+        },
+        "radioButton_Expression": true,
+        "radioButton_IntersectingFeatures": true,
+        "styleWidget0": {
+          "comboData": 1,
+          "comboText": "Feature style",
+          "editText": "",
+          "type": 2
+        },
+        "styleWidget1": {
+          "comboData": 1,
+          "comboText": "Feature style",
+          "editText": "",
+          "type": 5
+        },
+        "styleWidget2": {
+          "comboData": null,
+          "comboText": "Expression",
+          "editText": "( \"TEB_T1\" - 297)* \"TEB_T1\" ",
+          "type": 1
+        },
+        "styleWidget3": {
+          "comboData": 0,
+          "comboText": "(No Edge)",
+          "editText": "0",
+          "type": 7
+        },
+        "styleWidget4": {},
+        "styleWidget5": {}
+      },
+      "visible": true
+    },
+    {
+      "geomType": 3,
+      "layerId": "strat_2_et_mapuce_68278d9e_d864_4ff2_b44d_5ec225dc3c93",
+      "name": "strat_2_et_mapuce",
+      "properties": {},
+      "visible": false
+    },
+    {
+      "geomType": 0,
+      "layerId": "FLAT",
+      "name": "Flat Plane",
+      "properties": {
+        "checkBox_Clip": false,
+        "checkBox_Frame": false,
+        "checkBox_Shading": true,
+        "checkBox_Sides": true,
+        "checkBox_Surroundings": false,
+        "checkBox_TransparentBackground": false,
+        "checkBox_Visible": true,
+        "colorButton_Color": "0x000000",
+        "comboBox_ClipLayer": "paris_intramuros_95618dd6_88df_4338_95d7_7aee05037ed2",
+        "comboBox_TextureSize": 100,
+        "horizontalSlider_DEMSize": 2,
+        "lineEdit_ImageFile": "",
+        "radioButton_MapCanvas": true,
+        "spinBox_Opacity": 100,
+        "spinBox_Roughening": 1,
+        "spinBox_Size": 3,
+        "toolButton_SideColor": "0xccbbaa"
+      },
+      "visible": false
+    }
+  ],
+  "SCENE": {
+    "checkBox_autoZShift": false,
+    "colorButton_Color": "0xd9d8d7",
+    "comboBox_MaterialType": 0,
+    "lineEdit_BaseSize": "100",
+    "lineEdit_zFactor": "1.0",
+    "lineEdit_zShift": "0",
+    "radioButton_Color": true
+  }
+}
