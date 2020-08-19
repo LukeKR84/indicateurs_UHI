@@ -1,0 +1,42 @@
+Clef champs INSEE (données datant de 2016)
+
+Ind_c : Nombre d’individus résidant dans le carreau (dont la somme dans
+l'hexagone)
+
+Men : Nombre de ménages résidant dans le rectangle (dont la somme dans
+l'hexagone)
+
+Men_surf : Surface cumulée des résidences principales, en mètres carrés 
+
+Men_coll : Nombre total de ménages en logement collectif 
+
+Men_5ind : Nombre total de ménages de 5 personnes et plus
+
+Men_1ind : Nombre total de ménages d’une personne 
+
+Men_prop : Nombre total de ménages propriétaires
+
+Men_basr : Nombre total de ménages dont le revenu fiscal par unité de 
+consommation est en dessous du seuil de bas revenu 
+
+Ind_r : Nombre total d’individus résidant dans le rectangle
+
+Ind_age1 : Nombre total d’individus âgés de 0 à 3 ans
+
+Ind_age2 : Nombre total d’individus âgés de 4 à 5 ans
+
+Ind_age3 : Nombre total d’individus âgés de 6 à 10 ans
+
+Ind_age4 : Nombre total d’individus âgés de 11 à 14 ans
+
+Ind_age5 : Nombre total d’individus âgés de 15 à 17 ans
+
+Ind_age6 : Nombre total d’individus âgés de 25 ans et plus
+
+Ind_age7 : Nombre total d’individus âgés de 65 ans et plus
+
+Ind_age8 : Nombre total d’individus âgés de 75 ans et plus 
+
+Ind_srf : Somme des revenus fiscaux par unité de consommation winsorisés des individus
+
+
