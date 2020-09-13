@@ -1,0 +1,325 @@
+> g_bsf
+   ***********************************************************************
+   *                       Package   GWmodel                             *
+   ***********************************************************************
+   Program starts at: 2020-06-11 09:03:38 
+   Call:
+   gwr.basic(formula = TEB_T1 ~ bsf, data = zoi_bsf, bw = 700, kernel = "gaussian", 
+    adaptive = F, dMat = dm_bsf)
+
+   Dependent (y) variable:  TEB_T1
+   Independent variables:  bsf
+   Number of data points: 8131
+   ***********************************************************************
+   *                    Results of Global Regression                     *
+   ***********************************************************************
+
+   Call:
+    lm(formula = formula, data = data)
+
+   Residuals:
+     Min       1Q   Median       3Q      Max 
+-1.76878 -0.55052  0.02941  0.51505  2.26749 
+
+   Coefficients:
+                Estimate Std. Error  t value Pr(>|t|)    
+   (Intercept) 298.47447    0.01869 15968.91   <2e-16 ***
+   bsf           2.16921    0.04634    46.81   <2e-16 ***
+
+   ---Significance stars
+   Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+   Residual standard error: 0.6808 on 8129 degrees of freedom
+   Multiple R-squared: 0.2123
+   Adjusted R-squared: 0.2122 
+   F-statistic:  2192 on 1 and 8129 DF,  p-value: < 2.2e-16 
+   ***Extra Diagnostic information
+   Residual sum of squares: 3767.18
+   Sigma(hat): 0.6807531
+   AIC:  16825.13
+   AICc:  16825.14
+   ***********************************************************************
+   *          Results of Geographically Weighted Regression              *
+   ***********************************************************************
+
+   *********************Model calibration information*********************
+   Kernel function: gaussian 
+   Fixed bandwidth: 700 
+   Regression points: the same locations as observations are used.
+   Distance metric: A distance matrix is specified for this model calibration.
+
+   ****************Summary of GWR coefficient estimates:******************
+                  Min.   1st Qu.    Median   3rd Qu.     Max.
+   Intercept 297.74584 298.41778 298.98197 299.71689 300.5364
+   bsf        -0.49813   0.25410   0.52740   0.83428   3.4799
+   ************************Diagnostic information*************************
+   Number of data points: 8131 
+   Effective number of parameters (2trace(S) - trace(S'S)): 170.1512 
+   Effective degrees of freedom (n-2trace(S) + trace(S'S)): 7960.849 
+   AICc (GWR book, Fotheringham, et al. 2002, p. 61, eq 2.33): -6637.217 
+   AIC (GWR book, Fotheringham, et al. 2002,GWR p. 96, eq. 4.22): -6759.347 
+   Residual sum of squares: 204.3656 
+   R-square value:  0.9572706 
+   Adjusted R-square value:  0.9563572 
+
+   ***********************************************************************
+   Program stops at: 2020-06-11 09:04:21 
+> g_hre
+   ***********************************************************************
+   *                       Package   GWmodel                             *
+   ***********************************************************************
+   Program starts at: 2020-06-11 09:04:22 
+   Call:
+   gwr.basic(formula = TEB_T1 ~ hre, data = zoi_hre, bw = 700, kernel = "gaussian", 
+    adaptive = F, dMat = dm_hre)
+
+   Dependent (y) variable:  TEB_T1
+   Independent variables:  hre
+   Number of data points: 8131
+   ***********************************************************************
+   *                    Results of Global Regression                     *
+   ***********************************************************************
+
+   Call:
+    lm(formula = formula, data = data)
+
+   Residuals:
+    Min      1Q  Median      3Q     Max 
+-4.5037 -0.5273  0.0403  0.4733  2.1667 
+
+   Coefficients:
+                Estimate Std. Error  t value Pr(>|t|)    
+   (Intercept) 2.986e+02  1.368e-02 21829.70   <2e-16 ***
+   hre         1.145e-01  1.925e-03    59.51   <2e-16 ***
+
+   ---Significance stars
+   Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+   Residual standard error: 0.6402 on 8129 degrees of freedom
+   Multiple R-squared: 0.3034
+   Adjusted R-squared: 0.3034 
+   F-statistic:  3541 on 1 and 8129 DF,  p-value: < 2.2e-16 
+   ***Extra Diagnostic information
+   Residual sum of squares: 3331.494
+   Sigma(hat): 0.6401783
+   AIC:  15825.79
+   AICc:  15825.79
+   ***********************************************************************
+   *          Results of Geographically Weighted Regression              *
+   ***********************************************************************
+
+   *********************Model calibration information*********************
+   Kernel function: gaussian 
+   Fixed bandwidth: 700 
+   Regression points: the same locations as observations are used.
+   Distance metric: A distance matrix is specified for this model calibration.
+
+   ****************Summary of GWR coefficient estimates:******************
+                   Min.    1st Qu.     Median    3rd Qu.    Max.
+   Intercept 297.729975 298.394122 298.976053 299.713896 300.573
+   hre        -0.025740   0.017915   0.035695   0.056673   0.168
+   ************************Diagnostic information*************************
+   Number of data points: 8131 
+   Effective number of parameters (2trace(S) - trace(S'S)): 161.7677 
+   Effective degrees of freedom (n-2trace(S) + trace(S'S)): 7969.232 
+   AICc (GWR book, Fotheringham, et al. 2002, p. 61, eq 2.33): -6120.573 
+   AIC (GWR book, Fotheringham, et al. 2002,GWR p. 96, eq. 4.22): -6236.075 
+   Residual sum of squares: 218.118 
+   R-square value:  0.9543951 
+   Adjusted R-square value:  0.9534693 
+
+   ***********************************************************************
+   Program stops at: 2020-06-11 09:04:48 
+> g_isf
+   ***********************************************************************
+   *                       Package   GWmodel                             *
+   ***********************************************************************
+   Program starts at: 2020-06-11 09:04:48 
+   Call:
+   gwr.basic(formula = TEB_T1 ~ isf, data = zoi_isf, bw = 700, kernel = "gaussian", 
+    adaptive = F, dMat = dm_isf)
+
+   Dependent (y) variable:  TEB_T1
+   Independent variables:  isf
+   Number of data points: 8701
+   ***********************************************************************
+   *                    Results of Global Regression                     *
+   ***********************************************************************
+
+   Call:
+    lm(formula = formula, data = data)
+
+   Residuals:
+     Min       1Q   Median       3Q      Max 
+-1.86248 -0.70076 -0.03385  0.67625  1.51269 
+
+   Coefficients:
+                Estimate Std. Error   t value Pr(>|t|)    
+   (Intercept) 299.23803    0.01111 26942.649   <2e-16 ***
+   isf           0.05504    0.07500     0.734    0.463    
+
+   ---Significance stars
+   Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+   Residual standard error: 0.7708 on 8699 degrees of freedom
+   Multiple R-squared: 6.19e-05
+   Adjusted R-squared: -5.305e-05 
+   F-statistic: 0.5385 on 1 and 8699 DF,  p-value: 0.4631 
+   ***Extra Diagnostic information
+   Residual sum of squares: 5168.121
+   Sigma(hat): 0.7707822
+   AIC:  20165.77
+   AICc:  20165.77
+   ***********************************************************************
+   *          Results of Geographically Weighted Regression              *
+   ***********************************************************************
+
+   *********************Model calibration information*********************
+   Kernel function: gaussian 
+   Fixed bandwidth: 700 
+   Regression points: the same locations as observations are used.
+   Distance metric: A distance matrix is specified for this model calibration.
+
+   ****************Summary of GWR coefficient estimates:******************
+                    Min.     1st Qu.      Median     3rd Qu.     Max.
+   Intercept 297.8928845 298.6080013 299.2676934 299.9206911 300.4849
+   isf        -0.9981232  -0.1819131  -0.0090987   0.1946294   0.8676
+   ************************Diagnostic information*************************
+   Number of data points: 8701 
+   Effective number of parameters (2trace(S) - trace(S'S)): 168.088 
+   Effective degrees of freedom (n-2trace(S) + trace(S'S)): 8532.912 
+   AICc (GWR book, Fotheringham, et al. 2002, p. 61, eq 2.33): -6654.592 
+   AIC (GWR book, Fotheringham, et al. 2002,GWR p. 96, eq. 4.22): -6776.585 
+   Residual sum of squares: 230.6892 
+   R-square value:  0.9553658 
+   Adjusted R-square value:  0.9544865 
+
+   ***********************************************************************
+   Program stops at: 2020-06-11 09:05:37 
+> g_psf
+   ***********************************************************************
+   *                       Package   GWmodel                             *
+   ***********************************************************************
+   Program starts at: 2020-06-11 09:05:37 
+   Call:
+   gwr.basic(formula = TEB_T1 ~ psf, data = zoi_psf, bw = 700, kernel = "gaussian", 
+    adaptive = F, dMat = dm_psf)
+
+   Dependent (y) variable:  TEB_T1
+   Independent variables:  psf
+   Number of data points: 2647
+   ***********************************************************************
+   *                    Results of Global Regression                     *
+   ***********************************************************************
+
+   Call:
+    lm(formula = formula, data = data)
+
+   Residuals:
+     Min       1Q   Median       3Q      Max 
+-1.66330 -0.62588 -0.06854  0.61446  1.84192 
+
+   Coefficients:
+                Estimate Std. Error  t value Pr(>|t|)    
+   (Intercept) 299.21229    0.01763 16968.93   <2e-16 ***
+   psf          -0.57675    0.05549   -10.39   <2e-16 ***
+
+   ---Significance stars
+   Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+   Residual standard error: 0.7386 on 2645 degrees of freedom
+   Multiple R-squared: 0.03924
+   Adjusted R-squared: 0.03888 
+   F-statistic:   108 on 1 and 2645 DF,  p-value: < 2.2e-16 
+   ***Extra Diagnostic information
+   Residual sum of squares: 1443.009
+   Sigma(hat): 0.7386211
+   AIC:  5911.935
+   AICc:  5911.944
+   ***********************************************************************
+   *          Results of Geographically Weighted Regression              *
+   ***********************************************************************
+
+   *********************Model calibration information*********************
+   Kernel function: gaussian 
+   Fixed bandwidth: 700 
+   Regression points: the same locations as observations are used.
+   Distance metric: A distance matrix is specified for this model calibration.
+
+   ****************Summary of GWR coefficient estimates:******************
+                    Min.     1st Qu.      Median     3rd Qu.     Max.
+   Intercept 298.0158229 298.5841480 299.1839235 299.7105813 300.5369
+   psf        -1.6628353  -0.4198111  -0.2025195   0.0067955   0.4528
+   ************************Diagnostic information*************************
+   Number of data points: 2647 
+   Effective number of parameters (2trace(S) - trace(S'S)): 155.5906 
+   Effective degrees of freedom (n-2trace(S) + trace(S'S)): 2491.409 
+   AICc (GWR book, Fotheringham, et al. 2002, p. 61, eq 2.33): -1826.419 
+   AIC (GWR book, Fotheringham, et al. 2002,GWR p. 96, eq. 4.22): -1946.288 
+   Residual sum of squares: 71.31379 
+   R-square value:  0.9525192 
+   Adjusted R-square value:  0.9495527 
+
+   ***********************************************************************
+   Program stops at: 2020-06-11 09:05:50 
+> g_asf
+   ***********************************************************************
+   *                       Package   GWmodel                             *
+   ***********************************************************************
+   Program starts at: 2020-06-11 09:05:50 
+   Call:
+   gwr.basic(formula = TEB_T1 ~ asf, data = zoi_asf, bw = 700, kernel = "gaussian", 
+    adaptive = F, dMat = dm_asf)
+
+   Dependent (y) variable:  TEB_T1
+   Independent variables:  asf
+   Number of data points: 9069
+   ***********************************************************************
+   *                    Results of Global Regression                     *
+   ***********************************************************************
+
+   Call:
+    lm(formula = formula, data = data)
+
+   Residuals:
+     Min       1Q   Median       3Q      Max 
+-2.48432 -0.55091  0.01209  0.55111  2.16610 
+
+   Coefficients:
+                Estimate Std. Error  t value Pr(>|t|)    
+   (Intercept) 298.44671    0.01812 16474.01   <2e-16 ***
+   asf           1.78642    0.03816    46.81   <2e-16 ***
+
+   ---Significance stars
+   Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+   Residual standard error: 0.6952 on 9067 degrees of freedom
+   Multiple R-squared: 0.1946
+   Adjusted R-squared: 0.1946 
+   F-statistic:  2191 on 1 and 9067 DF,  p-value: < 2.2e-16 
+   ***Extra Diagnostic information
+   Residual sum of squares: 4382.64
+   Sigma(hat): 0.6952421
+   AIC:  19147.63
+   AICc:  19147.63
+   ***********************************************************************
+   *          Results of Geographically Weighted Regression              *
+   ***********************************************************************
+
+   *********************Model calibration information*********************
+   Kernel function: gaussian 
+   Fixed bandwidth: 700 
+   Regression points: the same locations as observations are used.
+   Distance metric: A distance matrix is specified for this model calibration.
+
+   ****************Summary of GWR coefficient estimates:******************
+                  Min.   1st Qu.    Median   3rd Qu.     Max.
+   Intercept 297.83617 298.32285 298.94221 299.57560 300.5431
+   asf        -0.37377   0.16661   0.36342   0.75838   3.0895
+   ************************Diagnostic information*************************
+   Number of data points: 9069 
+   Effective number of parameters (2trace(S) - trace(S'S)): 172.0203 
+   Effective degrees of freedom (n-2trace(S) + trace(S'S)): 8896.98 
+   AICc (GWR book, Fotheringham, et al. 2002, p. 61, eq 2.33): -7228.961 
+   AIC (GWR book, Fotheringham, et al. 2002,GWR p. 96, eq. 4.22): -7352.464 
+   Residual sum of squares: 232.9844 
+   R-square value:  0.9571868 
+   Adjusted R-square value:  0.9563589 
+
+   ***********************************************************************
+   Program stops at: 2020-06-11 09:07:43 
